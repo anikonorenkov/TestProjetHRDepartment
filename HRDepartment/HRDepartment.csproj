@@ -78,6 +78,12 @@
     <Compile Include="MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xfmEditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xfmEditEmployee.Designer.cs">
+      <DependentUpon>xfmEditEmployee.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fmEditDepartment.resx">
       <DependentUpon>fmEditDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="xfmEditEmployee.resx">
+      <DependentUpon>xfmEditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
