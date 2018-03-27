@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.DepartmentTrL = new DevExpress.XtraTreeList.TreeList();
+            this.TLDepartmentList = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.AddDepartnentBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.EditDepartmentBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.DeleteDepartmentBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.SBAddDepartnent = new DevExpress.XtraEditors.SimpleButton();
+            this.SBEditDepartment = new DevExpress.XtraEditors.SimpleButton();
+            this.SBDeleteDepartment = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.EmployeeGrCn = new DevExpress.XtraGrid.GridControl();
-            this.EmployeeGrV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.GCEmployeeList = new DevExpress.XtraGrid.GridControl();
+            this.GVEmployee = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,39 +47,41 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.IdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.AddEmployeeBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.EditEmployeeBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.DeleteEmployeeBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.SBAddEmployee = new DevExpress.XtraEditors.SimpleButton();
+            this.SBEditEmployee = new DevExpress.XtraEditors.SimpleButton();
+            this.SBDeleteEmployee = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DepartmentTrL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TLDepartmentList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrCn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCEmployeeList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GVEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelControl1.Controls.Add(this.DepartmentTrL);
+            this.panelControl1.Controls.Add(this.TLDepartmentList);
             this.panelControl1.Location = new System.Drawing.Point(13, 13);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(346, 636);
             this.panelControl1.TabIndex = 13;
             // 
-            // DepartmentTrL
+            // TLDepartmentList
             // 
-            this.DepartmentTrL.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.TLDepartmentList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.treeListColumn1});
-            this.DepartmentTrL.DataSource = null;
-            this.DepartmentTrL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DepartmentTrL.Location = new System.Drawing.Point(2, 2);
-            this.DepartmentTrL.Name = "DepartmentTrL";
-            this.DepartmentTrL.Size = new System.Drawing.Size(342, 632);
-            this.DepartmentTrL.TabIndex = 0;
-            this.DepartmentTrL.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.DepartmentTrL_FocusedNodeChanged);
+            this.TLDepartmentList.DataSource = null;
+            this.TLDepartmentList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLDepartmentList.Location = new System.Drawing.Point(2, 2);
+            this.TLDepartmentList.Name = "TLDepartmentList";
+            this.TLDepartmentList.OptionsBehavior.Editable = false;
+            this.TLDepartmentList.OptionsBehavior.ReadOnly = true;
+            this.TLDepartmentList.Size = new System.Drawing.Size(342, 632);
+            this.TLDepartmentList.TabIndex = 0;
+            this.TLDepartmentList.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.DepartmentTrL_FocusedNodeChanged);
             // 
             // treeListColumn1
             // 
@@ -89,60 +91,60 @@
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 0;
             // 
-            // AddDepartnentBtn
+            // SBAddDepartnent
             // 
-            this.AddDepartnentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddDepartnentBtn.Location = new System.Drawing.Point(15, 655);
-            this.AddDepartnentBtn.Name = "AddDepartnentBtn";
-            this.AddDepartnentBtn.Size = new System.Drawing.Size(75, 23);
-            this.AddDepartnentBtn.TabIndex = 14;
-            this.AddDepartnentBtn.Text = "Добавить...";
+            this.SBAddDepartnent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SBAddDepartnent.Location = new System.Drawing.Point(15, 655);
+            this.SBAddDepartnent.Name = "SBAddDepartnent";
+            this.SBAddDepartnent.Size = new System.Drawing.Size(84, 23);
+            this.SBAddDepartnent.TabIndex = 14;
+            this.SBAddDepartnent.Text = "Добавить...";
             // 
-            // EditDepartmentBtn
+            // SBEditDepartment
             // 
-            this.EditDepartmentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EditDepartmentBtn.Location = new System.Drawing.Point(97, 655);
-            this.EditDepartmentBtn.Name = "EditDepartmentBtn";
-            this.EditDepartmentBtn.Size = new System.Drawing.Size(75, 23);
-            this.EditDepartmentBtn.TabIndex = 15;
-            this.EditDepartmentBtn.Text = "Править...";
+            this.SBEditDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SBEditDepartment.Location = new System.Drawing.Point(105, 655);
+            this.SBEditDepartment.Name = "SBEditDepartment";
+            this.SBEditDepartment.Size = new System.Drawing.Size(80, 23);
+            this.SBEditDepartment.TabIndex = 15;
+            this.SBEditDepartment.Text = "Изменить...";
             // 
-            // DeleteDepartmentBtn
+            // SBDeleteDepartment
             // 
-            this.DeleteDepartmentBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteDepartmentBtn.Location = new System.Drawing.Point(179, 655);
-            this.DeleteDepartmentBtn.Name = "DeleteDepartmentBtn";
-            this.DeleteDepartmentBtn.Size = new System.Drawing.Size(75, 23);
-            this.DeleteDepartmentBtn.TabIndex = 16;
-            this.DeleteDepartmentBtn.Text = "Удалить";
+            this.SBDeleteDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SBDeleteDepartment.Location = new System.Drawing.Point(191, 655);
+            this.SBDeleteDepartment.Name = "SBDeleteDepartment";
+            this.SBDeleteDepartment.Size = new System.Drawing.Size(75, 23);
+            this.SBDeleteDepartment.TabIndex = 16;
+            this.SBDeleteDepartment.Text = "Удалить";
             // 
             // panelControl2
             // 
             this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl2.Controls.Add(this.EmployeeGrCn);
+            this.panelControl2.Controls.Add(this.GCEmployeeList);
             this.panelControl2.Location = new System.Drawing.Point(364, 13);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(765, 636);
             this.panelControl2.TabIndex = 17;
             // 
-            // EmployeeGrCn
+            // GCEmployeeList
             // 
-            this.EmployeeGrCn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GCEmployeeList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmployeeGrCn.Location = new System.Drawing.Point(2, 2);
-            this.EmployeeGrCn.MainView = this.EmployeeGrV;
-            this.EmployeeGrCn.Name = "EmployeeGrCn";
-            this.EmployeeGrCn.Size = new System.Drawing.Size(761, 632);
-            this.EmployeeGrCn.TabIndex = 12;
-            this.EmployeeGrCn.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.EmployeeGrV});
+            this.GCEmployeeList.Location = new System.Drawing.Point(2, 2);
+            this.GCEmployeeList.MainView = this.GVEmployee;
+            this.GCEmployeeList.Name = "GCEmployeeList";
+            this.GCEmployeeList.Size = new System.Drawing.Size(761, 632);
+            this.GCEmployeeList.TabIndex = 12;
+            this.GCEmployeeList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GVEmployee});
             // 
-            // EmployeeGrV
+            // GVEmployee
             // 
-            this.EmployeeGrV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.GVEmployee.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
@@ -153,14 +155,14 @@
             this.gridColumn8,
             this.gridColumn9,
             this.IdColumn});
-            this.EmployeeGrV.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
-            this.EmployeeGrV.GridControl = this.EmployeeGrCn;
-            this.EmployeeGrV.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
-            this.EmployeeGrV.Name = "EmployeeGrV";
-            this.EmployeeGrV.OptionsBehavior.Editable = false;
-            this.EmployeeGrV.OptionsBehavior.ReadOnly = true;
-            this.EmployeeGrV.OptionsView.ShowGroupPanel = false;
-            this.EmployeeGrV.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.GVEmployee.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.GVEmployee.GridControl = this.GCEmployeeList;
+            this.GVEmployee.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.GVEmployee.Name = "GVEmployee";
+            this.GVEmployee.OptionsBehavior.Editable = false;
+            this.GVEmployee.OptionsBehavior.ReadOnly = true;
+            this.GVEmployee.OptionsView.ShowGroupPanel = false;
+            this.GVEmployee.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             // 
             // gridColumn1
             // 
@@ -241,69 +243,70 @@
             this.IdColumn.FieldName = "Id";
             this.IdColumn.Name = "IdColumn";
             // 
-            // AddEmployeeBtn
+            // SBAddEmployee
             // 
-            this.AddEmployeeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddEmployeeBtn.Location = new System.Drawing.Point(366, 655);
-            this.AddEmployeeBtn.Name = "AddEmployeeBtn";
-            this.AddEmployeeBtn.Size = new System.Drawing.Size(75, 23);
-            this.AddEmployeeBtn.TabIndex = 18;
-            this.AddEmployeeBtn.Text = "Добавить...";
+            this.SBAddEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SBAddEmployee.Location = new System.Drawing.Point(366, 655);
+            this.SBAddEmployee.Name = "SBAddEmployee";
+            this.SBAddEmployee.Size = new System.Drawing.Size(83, 23);
+            this.SBAddEmployee.TabIndex = 18;
+            this.SBAddEmployee.Text = "Добавить...";
             // 
-            // EditEmployeeBtn
+            // SBEditEmployee
             // 
-            this.EditEmployeeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EditEmployeeBtn.Location = new System.Drawing.Point(448, 655);
-            this.EditEmployeeBtn.Name = "EditEmployeeBtn";
-            this.EditEmployeeBtn.Size = new System.Drawing.Size(75, 23);
-            this.EditEmployeeBtn.TabIndex = 19;
-            this.EditEmployeeBtn.Text = "Править...";
+            this.SBEditEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SBEditEmployee.Location = new System.Drawing.Point(455, 655);
+            this.SBEditEmployee.Name = "SBEditEmployee";
+            this.SBEditEmployee.Size = new System.Drawing.Size(83, 23);
+            this.SBEditEmployee.TabIndex = 19;
+            this.SBEditEmployee.Text = "Изменить...";
             // 
-            // DeleteEmployeeBtn
+            // SBDeleteEmployee
             // 
-            this.DeleteEmployeeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteEmployeeBtn.Location = new System.Drawing.Point(530, 655);
-            this.DeleteEmployeeBtn.Name = "DeleteEmployeeBtn";
-            this.DeleteEmployeeBtn.Size = new System.Drawing.Size(75, 23);
-            this.DeleteEmployeeBtn.TabIndex = 20;
-            this.DeleteEmployeeBtn.Text = "Удалить";
+            this.SBDeleteEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SBDeleteEmployee.Location = new System.Drawing.Point(544, 655);
+            this.SBDeleteEmployee.Name = "SBDeleteEmployee";
+            this.SBDeleteEmployee.Size = new System.Drawing.Size(75, 23);
+            this.SBDeleteEmployee.TabIndex = 20;
+            this.SBDeleteEmployee.Text = "Удалить";
             // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1141, 690);
-            this.Controls.Add(this.DeleteEmployeeBtn);
-            this.Controls.Add(this.EditEmployeeBtn);
-            this.Controls.Add(this.AddEmployeeBtn);
+            this.Controls.Add(this.SBDeleteEmployee);
+            this.Controls.Add(this.SBEditEmployee);
+            this.Controls.Add(this.SBAddEmployee);
             this.Controls.Add(this.panelControl2);
-            this.Controls.Add(this.DeleteDepartmentBtn);
-            this.Controls.Add(this.EditDepartmentBtn);
-            this.Controls.Add(this.AddDepartnentBtn);
+            this.Controls.Add(this.SBDeleteDepartment);
+            this.Controls.Add(this.SBEditDepartment);
+            this.Controls.Add(this.SBAddDepartnent);
             this.Controls.Add(this.panelControl1);
             this.Name = "fmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудники";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DepartmentTrL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TLDepartmentList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrCn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeGrV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GCEmployeeList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GVEmployee)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraTreeList.TreeList DepartmentTrL;
-        private DevExpress.XtraEditors.SimpleButton AddDepartnentBtn;
-        private DevExpress.XtraEditors.SimpleButton EditDepartmentBtn;
-        private DevExpress.XtraEditors.SimpleButton DeleteDepartmentBtn;
+        private DevExpress.XtraTreeList.TreeList TLDepartmentList;
+        private DevExpress.XtraEditors.SimpleButton SBAddDepartnent;
+        private DevExpress.XtraEditors.SimpleButton SBEditDepartment;
+        private DevExpress.XtraEditors.SimpleButton SBDeleteDepartment;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.GridControl EmployeeGrCn;
-        private DevExpress.XtraGrid.Views.Grid.GridView EmployeeGrV;
+        private DevExpress.XtraGrid.GridControl GCEmployeeList;
+        private DevExpress.XtraGrid.Views.Grid.GridView GVEmployee;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
@@ -314,8 +317,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn IdColumn;
-        private DevExpress.XtraEditors.SimpleButton AddEmployeeBtn;
-        private DevExpress.XtraEditors.SimpleButton EditEmployeeBtn;
-        private DevExpress.XtraEditors.SimpleButton DeleteEmployeeBtn;
+        private DevExpress.XtraEditors.SimpleButton SBAddEmployee;
+        private DevExpress.XtraEditors.SimpleButton SBEditEmployee;
+        private DevExpress.XtraEditors.SimpleButton SBDeleteEmployee;
     }
 }

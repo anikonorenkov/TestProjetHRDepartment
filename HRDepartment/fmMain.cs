@@ -24,16 +24,16 @@ namespace HRDepartment
         int SelectedDGVRows { get; }
         int EmployeeId { get; }
         bool SelectedRowsCount { get; }
-        void LoadDepartmentTrL();
-        void LoadEmployeeGrCn();
+        void TLLoadDepartment();
+        void GRLoadEmployee();
 
-        event EventHandler AddDepartmentBtnClick;
-        event EventHandler EditDepartmentBtnClick;
-        event EventHandler DeleteDepartmentBtnClick;
+        event EventHandler SBAddDepartmentClick;
+        event EventHandler SBEditDepartmentClick;
+        event EventHandler SBDeleteDepartmentClick;
 
-        event EventHandler AddEmployeeBtnClick;
-        event EventHandler EditEmployeeBtnClick;
-        event EventHandler DeleteEmployeeBtnClick;
+        event EventHandler SBAddEmployeeClick;
+        event EventHandler SBEditEmployeeClick;
+        event EventHandler SBDeleteEmployeeClick;
 
         event EventHandler LoadDataDepartmentTreeView;
         event EventHandler LoadDataEmployeeDataGridView;
@@ -50,7 +50,7 @@ namespace HRDepartment
         /// </summary>
         public int DepartmentCurrentId
         {
-            get { return (int)DepartmentTrL.FocusedNode.GetValue("Id"); }
+            get { return (int)TLDepartmentList.FocusedNode.GetValue("Id"); }
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace HRDepartment
         /// </summary>
         public int EmployeeCurrentDepartmentId
         {
-            get { return (int)EmployeeGrV.GetRowCellValue(EmployeeGrV.FocusedRowHandle, "DepartmentId"); }
+            get { return (int)GVEmployee.GetRowCellValue(GVEmployee.FocusedRowHandle, "DepartmentId"); }
         }
 
         /// <summary>
@@ -86,9 +86,8 @@ namespace HRDepartment
         /// Выбранная строка в EmployeeDataGridView int{get}
         /// </summary>
         public int SelectedDGVRows
-
         {
-            get { return (int)EmployeeGrV.GetRowCellValue(EmployeeGrV.FocusedRowHandle, "Id"); }
+            get { return (int)GVEmployee.GetRowCellValue(GVEmployee.FocusedRowHandle, "Id"); }
         }
 
         /// <summary>
@@ -96,7 +95,7 @@ namespace HRDepartment
         /// </summary>
         public int EmployeeId
         {
-            get { return (int)EmployeeGrV.GetRowCellValue(EmployeeGrV.FocusedRowHandle, "Id"); }
+            get { return (int)GVEmployee.GetRowCellValue(GVEmployee.FocusedRowHandle, "Id"); }
         }
 
         /// <summary>
@@ -104,7 +103,7 @@ namespace HRDepartment
         /// </summary>
         public bool SelectedRowsCount
         {
-            get { return EmployeeGrV.RowCount <= 0; }
+            get { return GVEmployee.RowCount <= 0; }
         }
 
 
@@ -112,70 +111,70 @@ namespace HRDepartment
         {
             InitializeComponent();
             LoadData();
-            AddDepartnentBtn.Click += AddDepartnentBtn_Click;
-            EditDepartmentBtn.Click += EditDepartmentBtn_Click;
-            DeleteDepartmentBtn.Click += DeleteDepartmentBtn_Click;
-            AddEmployeeBtn.Click += AddEmployeeBtn_Click;
-            EditEmployeeBtn.Click += EditEmployeeBtn_Click;
-            DeleteEmployeeBtn.Click += DeleteEmployeeBtn_Click;
+            SBAddDepartnent.Click += SBAddDepartnent_Click;
+            SBEditDepartment.Click += SBEditDepartment_Click;
+            SBDeleteDepartment.Click += SBDeleteDepartment_Click;
+            SBAddEmployee.Click += SBAddEmployee_Click;
+            SBEditEmployee.Click += SBEditEmployee_Click;
+            SBDeleteEmployee.Click += BSDeleteEmployee_Click;
         }
 
         #region Реализация интерфейса IMainForm
-        private void DeleteEmployeeBtn_Click(object sender, EventArgs e)
+        private void BSDeleteEmployee_Click(object sender, EventArgs e)
         {
-            DeleteEmployeeBtnClick?.Invoke(this, EventArgs.Empty);
+            SBDeleteEmployeeClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void EditEmployeeBtn_Click(object sender, EventArgs e)
+        private void SBEditEmployee_Click(object sender, EventArgs e)
         {
-            EditEmployeeBtnClick?.Invoke(this, EventArgs.Empty);
+            SBEditEmployeeClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void AddEmployeeBtn_Click(object sender, EventArgs e)
+        private void SBAddEmployee_Click(object sender, EventArgs e)
         {
-            AddEmployeeBtnClick?.Invoke(this, EventArgs.Empty);
+            SBAddEmployeeClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void DeleteDepartmentBtn_Click(object sender, EventArgs e)
+        private void SBDeleteDepartment_Click(object sender, EventArgs e)
         {
-            DeleteDepartmentBtnClick?.Invoke(this, EventArgs.Empty);
+            SBDeleteDepartmentClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void EditDepartmentBtn_Click(object sender, EventArgs e)
+        private void SBEditDepartment_Click(object sender, EventArgs e)
         {
-            EditDepartmentBtnClick?.Invoke(this, EventArgs.Empty);
+            SBEditDepartmentClick?.Invoke(this, EventArgs.Empty);
         }
 
-        private void AddDepartnentBtn_Click(object sender, EventArgs e)
+        private void SBAddDepartnent_Click(object sender, EventArgs e)
         {
-            AddDepartmentBtnClick?.Invoke(this, EventArgs.Empty);
+            SBAddDepartmentClick?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler AddDepartmentBtnClick;
-        public event EventHandler EditDepartmentBtnClick;
-        public event EventHandler DeleteDepartmentBtnClick;
-        public event EventHandler AddEmployeeBtnClick;
-        public event EventHandler EditEmployeeBtnClick;
-        public event EventHandler DeleteEmployeeBtnClick;
+        public event EventHandler SBAddDepartmentClick;
+        public event EventHandler SBEditDepartmentClick;
+        public event EventHandler SBDeleteDepartmentClick;
+        public event EventHandler SBAddEmployeeClick;
+        public event EventHandler SBEditEmployeeClick;
+        public event EventHandler SBDeleteEmployeeClick;
 
         public event EventHandler LoadDataDepartmentTreeView;
         public event EventHandler LoadDataEmployeeDataGridView;
 
         #endregion
 
-        public void LoadDepartmentTrL()
+        public void TLLoadDepartment()
         {
-            DepartmentTrL.DataSource = DataManager.Instance.Departments.GetAll();
-            DepartmentTrL.ParentFieldName = "ParentId";
-            DepartmentTrL.KeyFieldName = "Id";
+            TLDepartmentList.DataSource = DataManager.Instance.Departments.GetAll();
+            TLDepartmentList.ParentFieldName = "ParentId";
+            TLDepartmentList.KeyFieldName = "Id";
         }
 
         /// <summary>
         /// Загрузка данных в EmployeeGrCn
         /// </summary>
-        public void LoadEmployeeGrCn()
+        public void GRLoadEmployee()
         {
-            EmployeeGrCn.DataSource = DataManager.Instance.Employees.GetAll();
+            GCEmployeeList.DataSource = DataManager.Instance.Employees.GetAll();
         }
 
         /// <summary>
@@ -183,10 +182,11 @@ namespace HRDepartment
         /// </summary>
         private void LoadData()
         {
+
             try
             {
-                LoadDepartmentTrL();
-                LoadEmployeeGrCn();
+                TLLoadDepartment();
+                GRLoadEmployee();
             }
             catch (Exception ex)
             {
@@ -201,15 +201,16 @@ namespace HRDepartment
         /// <param name="e"></param>
         private void DepartmentTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             try
             {
                 var departmens = new List<int?>();
 
-                if (DepartmentTrL.FocusedNode != null)
-                    departmens.Add((int)DepartmentTrL.FocusedNode.Tag);
-                departmens = GetDepartmentId(departmens);
+                if (TLDepartmentList.FocusedNode != null)
+                    departmens.Add((int)TLDepartmentList.FocusedNode.GetValue("Id"));
 
-                EmployeeGrCn.DataSource = GetFilterDepartmentIDEmployees(departmens);
+                departmens = GetDepartmentId(departmens);
+                GCEmployeeList.DataSource = GetFilterDepartmentIDEmployees(departmens);
             }
             catch (Exception ex)
             {
@@ -225,22 +226,26 @@ namespace HRDepartment
         public static List<int?> GetDepartmentId(List<int?> parentDepartmentId)
         {
             var childrenDepartment = new List<int?>();
+
             foreach (var item in parentDepartmentId)
             {
                 childrenDepartment.Add(item);
             }
+
             while (DataManager.Instance.Departments.GetAll().Where(c => parentDepartmentId.Contains(c.Id)).Any())
             {
                 var myDepartment = DataManager.Instance.Departments.GetAll()
                     .Where(c => parentDepartmentId.Contains(c.ParentId))
                     .Select(c => (int)c.Id).ToList();
                 parentDepartmentId.Clear();
+
                 foreach (var item in myDepartment)
                 {
                     parentDepartmentId.Add(item);
                     childrenDepartment.Add(item);
                 }
             }
+
             return childrenDepartment;
         }
 
@@ -249,17 +254,17 @@ namespace HRDepartment
         /// </summary>
         /// <param name="departmentID"></param>
         /// <returns></returns>
-        public static List<Employee> GetFilterDepartmentIDEmployees(List<int?> departmentsID)
+        public static List<Employee> GetFilterDepartmentIDEmployees(List<int?> departmentsId)
         {
             var result = new List<Employee>();
             var emp = DataManager.Instance.Employees.GetAll(). // Основоной набор данных 
-                Where(c => departmentsID.Contains((int)c.DepartmentId)).
+                Where(c => departmentsId.Contains((int)c.DepartmentId)).
                 Join(DataManager.Instance.Departments.GetAll(),    // Связываемый набор данных
                 e => e.DepartmentId,  // Свойство селектор из первого набора
                 d => d.Id,   // Свойство селектор из второго набора
                 (e, d) => new           // Создаем результат
                 {
-                    employeeID = e.Id,
+                    employeeId = e.Id,
                     tabNom = e.TabNumber,
                     firstName = e.FirstName,
                     lastName = e.LastName,
@@ -269,14 +274,15 @@ namespace HRDepartment
                     gender = e.Gender,
                     position = e.Position,
                     information = e.Information,
-                    departmentID = e.DepartmentId
+                    departmentId = e.DepartmentId
 
                 });
+
             foreach (var item in emp)
             {
                 Employee e = new Employee()
                 {
-                    Id = item.employeeID,
+                    Id = item.employeeId,
                     FirstName = item.firstName,
                     LastName = item.lastName,
                     MiddleName = item.middleName,
@@ -286,12 +292,14 @@ namespace HRDepartment
                     Gender = item.gender,
                     Position = item.position,
                     Information = item.information,
-                    DepartmentId = item.departmentID
+                    DepartmentId = item.departmentId
                 };
+
                 result.Add(e);
             }
 
             return result;
+
         }
 
         /// <summary>
@@ -301,15 +309,17 @@ namespace HRDepartment
         /// <param name="e"></param>
         private void DepartmentTrL_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
+
             try
             {
                 var listId = new List<int?>();
 
-                if (DepartmentTrL.FocusedNode.GetValue("Id") != null)
-                    listId.Add((int)DepartmentTrL.FocusedNode.GetValue("Id"));
+                if (TLDepartmentList.FocusedNode.GetValue("Id") != null)
+                    listId.Add((int)TLDepartmentList.FocusedNode.GetValue("Id"));
+
                 listId = GetDepartmentId(listId);
 
-                EmployeeGrCn.DataSource = GetFilterDepartmentIDEmployees(listId);
+                GCEmployeeList.DataSource = GetFilterDepartmentIDEmployees(listId);
             }
             catch (Exception ex)
             {

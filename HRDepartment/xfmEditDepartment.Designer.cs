@@ -1,6 +1,6 @@
 ﻿namespace HRDepartment
 {
-    partial class fmEditDepartment
+    partial class xfmEditDepartment
     {
         /// <summary>
         /// Required designer variable.

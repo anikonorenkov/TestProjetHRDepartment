@@ -21,44 +21,44 @@ namespace DAL.Repositories
 
         }
 
-        /// <summary>
-        /// Возвращает список подразделений
-        /// </summary>
-        /// <returns></returns>
-        public override List<Department> GetAll()
-        {
-            var result = base.GetAll();
-            return result;
-        }
+        ///// <summary>
+        ///// Возвращает список подразделений
+        ///// </summary>
+        ///// <returns></returns>
+        //public override List<Department> GetAll()
+        //{
+        //    var result = base.GetAll();
+        //    return result;
+        //}
 
-        /// <summary>
-        /// Возвращает список из одного подразделения id которого передается в качестве входящего параметра
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public override Department GetById(int id)
-        {
-            var result = base.GetById(id);
-            return result;
-        }
+        ///// <summary>
+        ///// Возвращает список из одного подразделения id которого передается в качестве входящего параметра
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public override Department GetById(int id)
+        //{
+        //    var result = base.GetById(id);
+        //    return result;
+        //}
 
-        /// <summary>
-        /// Добавляет новое подразделение
-        /// </summary>
-        /// <param name="department"></param>
-        public override void Add(Department department)
-        {
-            base.Add(department);
-        }
+        ///// <summary>
+        ///// Добавляет новое подразделение
+        ///// </summary>
+        ///// <param name="department"></param>
+        //public override void Add(Department department)
+        //{
+        //    base.Add(department);
+        //}
 
-        /// <summary>
-        /// Редактирование выбранного подразделения
-        /// </summary>
-        /// <param name="department"></param>
-        public override void Edit(Department department)
-        {
-            base.Edit(department);
-        }
+        ///// <summary>
+        ///// Редактирование выбранного подразделения
+        ///// </summary>
+        ///// <param name="department"></param>
+        //public override void Edit(Department department)
+        //{
+        //    base.Edit(department);
+        //}
 
         /// <summary>
         /// Удаление выбранного подразделения

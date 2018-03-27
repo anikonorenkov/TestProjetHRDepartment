@@ -13,11 +13,23 @@ using System.Windows.Forms;
 
 namespace HRDepartment
 {
-    public partial class fmEditDepartment : Form
+    public partial class xfmEditDepartment : Form
     {
-        public fmEditDepartment()
+        public xfmEditDepartment()
         {
             InitializeComponent();
+        }
+
+        public static bool Execute(DAL.Department department)
+        {
+            using (var fm = new xfmEditDepartment())
+            {
+                fm.Department = department;
+                var dr = fm.ShowDialog();
+
+                return dr == DialogResult.OK;
+
+            }
         }
 
         private void DepartmentForm_Load(object sender, EventArgs e)
@@ -25,11 +37,11 @@ namespace HRDepartment
             SetDepartmentCombobox();
         }
 
-        public int _DepartmentID;
+        private int _DepartmentId;
 
         public int ParentDepartment
         {
-            get { return _DepartmentID; }
+            get { return _DepartmentId; }
             set
             {
 
@@ -37,18 +49,18 @@ namespace HRDepartment
                 {
                     DepartmentCbBx.SelectedValue = value;
                 }
-                _DepartmentID = value;
+                _DepartmentId = value;
             }
         }
 
-        private void UpdateType(object sender, EventArgs e)
+        private void DoUpdate(object sender, EventArgs e)
         {
-            UpdateType();
+            DoUpdate();
         }
 
-        private void InsertType(object sender, EventArgs e)
+        private void DoInsert(object sender, EventArgs e)
         {
-            InsertType();
+            DoInsert();
         }
 
         /// <summary>
@@ -65,7 +77,7 @@ namespace HRDepartment
                 if (value != null)
                 {
                     this.Text = "Редактировать подразделение";
-                    this.SaveBtn.Click += UpdateType; ;
+                    this.SaveBtn.Click += DoUpdate; ;
                     NameTxb.Text = value.Name;
                     CodeTxb.Text = value.Code;
 
@@ -76,7 +88,7 @@ namespace HRDepartment
                 else
                 {
                     this.Text = "Добавить подразделение";
-                    this.SaveBtn.Click += InsertType;
+                    this.SaveBtn.Click += DoInsert;
                 }
                 _department = value;
             }
@@ -87,6 +99,7 @@ namespace HRDepartment
         /// </summary>
         public void SetDepartmentCombobox()
         {
+
             try
             {
                 DepartmentCbBx.DataSource = DataManager.Instance.Departments.GetAll();
@@ -105,8 +118,9 @@ namespace HRDepartment
         /// <summary>
         /// Действия при добавлении подразделения
         /// </summary>
-        private void InsertType()
+        private void DoInsert()
         {
+
             try
             {
                 var department = new DAL.Department()
@@ -117,6 +131,7 @@ namespace HRDepartment
                     ParentId = (int)DepartmentCbBx.SelectedValue,
                     IsActive = IsActiveDepartmentChb.Checked,
                 };
+
                 DataManager.Instance.Departments.Add(department);
                 this.Close();
             }
@@ -129,7 +144,7 @@ namespace HRDepartment
         /// <summary>
         /// Действия при редактировании подразделения
         /// </summary>
-        private void UpdateType()
+        private void DoUpdate()
         {
             try
             {
@@ -144,17 +159,6 @@ namespace HRDepartment
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        public static bool Execute(DAL.Department department)
-        {
-            using (var fm = new fmEditDepartment())
-            {
-                fm.Department = department;
-                var dr = fm.ShowDialog();
-
-                return dr == DialogResult.OK;
             }
         }
 

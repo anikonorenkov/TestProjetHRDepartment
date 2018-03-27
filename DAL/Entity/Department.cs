@@ -12,13 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
 
-    public partial class Department 
+    public  class Department 
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+       // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Department()
         {
-            this.Department1 = new HashSet<Department>();
-            this.Employee = new HashSet<Employee>();
+            //this.Department1 = new HashSet<Department>();
+            //this.Employee = new HashSet<Employee>();
         }
 
 
@@ -29,10 +29,10 @@ namespace DAL
         public Nullable<int> ParentId { get; set; }
         public Nullable<bool> IsActive { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Department> Department1 { get; set; }
-        public virtual Department Department2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Department> Department1 { get; set; }
+        //public virtual Department Department2 { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Employee> Employee { get; set; }
     }
 }

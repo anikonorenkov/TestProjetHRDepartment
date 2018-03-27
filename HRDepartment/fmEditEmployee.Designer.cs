@@ -28,280 +28,285 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.InformationTxBx = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.PositionTxBx = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.DepartmentCbBx = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.HireDateDtTP = new System.Windows.Forms.DateTimePicker();
-            this.TabNoTxBx = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BirthDateDtTP = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.FirstNameTxBx = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.MiddleNameTxBx = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LastNameTxBx = new System.Windows.Forms.TextBox();
-            this.IsActiveEmployeeChBx = new System.Windows.Forms.CheckBox();
-            this.CancelBtn = new System.Windows.Forms.Button();
-            this.SaveBtn = new System.Windows.Forms.Button();
-            this.GenderCbCx = new System.Windows.Forms.ComboBox();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.TELastName = new DevExpress.XtraEditors.TextEdit();
+            this.TEFirstName = new DevExpress.XtraEditors.TextEdit();
+            this.TEMiddleName = new DevExpress.XtraEditors.TextEdit();
+            this.DEBirthDay = new DevExpress.XtraEditors.DateEdit();
+            this.DEHireDate = new DevExpress.XtraEditors.DateEdit();
+            this.TETabNumber = new DevExpress.XtraEditors.TextEdit();
+            this.SBSave = new DevExpress.XtraEditors.SimpleButton();
+            this.SBCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.CEIsActiv = new DevExpress.XtraEditors.CheckEdit();
+            this.TEPosition = new DevExpress.XtraEditors.TextEdit();
+            this.CBEGender = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.MEInformation = new DevExpress.XtraEditors.MemoEdit();
+            this.LUEDepartment = new DevExpress.XtraEditors.LookUpEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.TELastName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEFirstName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEMiddleName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEBirthDay.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEBirthDay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEHireDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEHireDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TETabNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CEIsActiv.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEPosition.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBEGender.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MEInformation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LUEDepartment.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // InformationTxBx
+            // labelControl1
             // 
-            this.InformationTxBx.Location = new System.Drawing.Point(150, 292);
-            this.InformationTxBx.Margin = new System.Windows.Forms.Padding(4);
-            this.InformationTxBx.Multiline = true;
-            this.InformationTxBx.Name = "InformationTxBx";
-            this.InformationTxBx.Size = new System.Drawing.Size(200, 74);
-            this.InformationTxBx.TabIndex = 34;
+            this.labelControl1.Location = new System.Drawing.Point(12, 16);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(58, 16);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Фамилия:";
             // 
-            // label10
+            // labelControl2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(19, 292);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 17);
-            this.label10.TabIndex = 44;
-            this.label10.Text = "Информация:";
+            this.labelControl2.Location = new System.Drawing.Point(13, 44);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(28, 16);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Имя:";
             // 
-            // PositionTxBx
+            // labelControl3
             // 
-            this.PositionTxBx.Location = new System.Drawing.Point(150, 258);
-            this.PositionTxBx.Margin = new System.Windows.Forms.Padding(4);
-            this.PositionTxBx.Name = "PositionTxBx";
-            this.PositionTxBx.Size = new System.Drawing.Size(200, 22);
-            this.PositionTxBx.TabIndex = 33;
+            this.labelControl3.Location = new System.Drawing.Point(13, 72);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(60, 16);
+            this.labelControl3.TabIndex = 2;
+            this.labelControl3.Text = "Отчество:";
             // 
-            // label9
+            // labelControl4
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 258);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 17);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "Должность:";
+            this.labelControl4.Location = new System.Drawing.Point(13, 100);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(97, 16);
+            this.labelControl4.TabIndex = 3;
+            this.labelControl4.Text = "Дата рождения:";
             // 
-            // DepartmentCbBx
+            // labelControl5
             // 
-            this.DepartmentCbBx.FormattingEnabled = true;
-            this.DepartmentCbBx.Location = new System.Drawing.Point(150, 223);
-            this.DepartmentCbBx.Margin = new System.Windows.Forms.Padding(4);
-            this.DepartmentCbBx.Name = "DepartmentCbBx";
-            this.DepartmentCbBx.Size = new System.Drawing.Size(200, 24);
-            this.DepartmentCbBx.TabIndex = 31;
+            this.labelControl5.Location = new System.Drawing.Point(12, 128);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(111, 16);
+            this.labelControl5.TabIndex = 4;
+            this.labelControl5.Text = "Табельный номер:";
             // 
-            // label8
+            // labelControl6
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 223);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 17);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "Подразделение:";
+            this.labelControl6.Location = new System.Drawing.Point(13, 156);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(81, 16);
+            this.labelControl6.TabIndex = 5;
+            this.labelControl6.Text = "Дата приёма:";
             // 
-            // label7
+            // labelControl7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 193);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 17);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Пол:";
+            this.labelControl7.Location = new System.Drawing.Point(14, 184);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(27, 16);
+            this.labelControl7.TabIndex = 6;
+            this.labelControl7.Text = "Пол:";
             // 
-            // label6
+            // labelControl8
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 163);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 17);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Дата приема:";
+            this.labelControl8.Location = new System.Drawing.Point(12, 215);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(96, 16);
+            this.labelControl8.TabIndex = 7;
+            this.labelControl8.Text = "Подразделение:";
             // 
-            // HireDateDtTP
+            // labelControl9
             // 
-            this.HireDateDtTP.Location = new System.Drawing.Point(150, 163);
-            this.HireDateDtTP.Margin = new System.Windows.Forms.Padding(4);
-            this.HireDateDtTP.Name = "HireDateDtTP";
-            this.HireDateDtTP.Size = new System.Drawing.Size(200, 22);
-            this.HireDateDtTP.TabIndex = 29;
+            this.labelControl9.Location = new System.Drawing.Point(12, 240);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(71, 16);
+            this.labelControl9.TabIndex = 8;
+            this.labelControl9.Text = "Должность:";
             // 
-            // TabNoTxBx
+            // labelControl10
             // 
-            this.TabNoTxBx.Location = new System.Drawing.Point(150, 133);
-            this.TabNoTxBx.Margin = new System.Windows.Forms.Padding(4);
-            this.TabNoTxBx.Name = "TabNoTxBx";
-            this.TabNoTxBx.Size = new System.Drawing.Size(200, 22);
-            this.TabNoTxBx.TabIndex = 27;
+            this.labelControl10.Location = new System.Drawing.Point(12, 262);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(80, 16);
+            this.labelControl10.TabIndex = 9;
+            this.labelControl10.Text = "Информация:";
             // 
-            // label5
+            // TELastName
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 133);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 17);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Таб.Номер";
+            this.TELastName.Location = new System.Drawing.Point(152, 13);
+            this.TELastName.Name = "TELastName";
+            this.TELastName.Size = new System.Drawing.Size(164, 22);
+            this.TELastName.TabIndex = 10;
             // 
-            // label4
+            // TEFirstName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 103);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 17);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Дата рождения:";
+            this.TEFirstName.Location = new System.Drawing.Point(152, 41);
+            this.TEFirstName.Name = "TEFirstName";
+            this.TEFirstName.Size = new System.Drawing.Size(164, 22);
+            this.TEFirstName.TabIndex = 11;
             // 
-            // BirthDateDtTP
+            // TEMiddleName
             // 
-            this.BirthDateDtTP.Location = new System.Drawing.Point(150, 103);
-            this.BirthDateDtTP.Margin = new System.Windows.Forms.Padding(4);
-            this.BirthDateDtTP.Name = "BirthDateDtTP";
-            this.BirthDateDtTP.Size = new System.Drawing.Size(200, 22);
-            this.BirthDateDtTP.TabIndex = 26;
+            this.TEMiddleName.Location = new System.Drawing.Point(152, 69);
+            this.TEMiddleName.Name = "TEMiddleName";
+            this.TEMiddleName.Size = new System.Drawing.Size(164, 22);
+            this.TEMiddleName.TabIndex = 12;
             // 
-            // label3
+            // DEBirthDay
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 43);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 17);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Имя:";
+            this.DEBirthDay.EditValue = null;
+            this.DEBirthDay.Location = new System.Drawing.Point(152, 97);
+            this.DEBirthDay.Name = "DEBirthDay";
+            this.DEBirthDay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DEBirthDay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DEBirthDay.Size = new System.Drawing.Size(164, 22);
+            this.DEBirthDay.TabIndex = 13;
             // 
-            // FirstNameTxBx
+            // DEHireDate
             // 
-            this.FirstNameTxBx.Location = new System.Drawing.Point(150, 43);
-            this.FirstNameTxBx.Margin = new System.Windows.Forms.Padding(4);
-            this.FirstNameTxBx.Name = "FirstNameTxBx";
-            this.FirstNameTxBx.Size = new System.Drawing.Size(200, 22);
-            this.FirstNameTxBx.TabIndex = 23;
+            this.DEHireDate.EditValue = null;
+            this.DEHireDate.Location = new System.Drawing.Point(152, 153);
+            this.DEHireDate.Name = "DEHireDate";
+            this.DEHireDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DEHireDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DEHireDate.Size = new System.Drawing.Size(164, 22);
+            this.DEHireDate.TabIndex = 14;
             // 
-            // label2
+            // TETabNumber
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 17);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Отчество:";
+            this.TETabNumber.Location = new System.Drawing.Point(152, 125);
+            this.TETabNumber.Name = "TETabNumber";
+            this.TETabNumber.Size = new System.Drawing.Size(164, 22);
+            this.TETabNumber.TabIndex = 15;
             // 
-            // MiddleNameTxBx
+            // SBSave
             // 
-            this.MiddleNameTxBx.Location = new System.Drawing.Point(150, 73);
-            this.MiddleNameTxBx.Margin = new System.Windows.Forms.Padding(4);
-            this.MiddleNameTxBx.Name = "MiddleNameTxBx";
-            this.MiddleNameTxBx.Size = new System.Drawing.Size(200, 22);
-            this.MiddleNameTxBx.TabIndex = 24;
+            this.SBSave.Location = new System.Drawing.Point(241, 394);
+            this.SBSave.Name = "SBSave";
+            this.SBSave.Size = new System.Drawing.Size(75, 23);
+            this.SBSave.TabIndex = 16;
+            this.SBSave.Text = "Принять";
             // 
-            // label1
+            // SBCancel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Фамилия:";
+            this.SBCancel.Location = new System.Drawing.Point(152, 394);
+            this.SBCancel.Name = "SBCancel";
+            this.SBCancel.Size = new System.Drawing.Size(75, 23);
+            this.SBCancel.TabIndex = 17;
+            this.SBCancel.Text = "Отмена";
+            this.SBCancel.Click += new System.EventHandler(this.SBCancel_Click);
             // 
-            // LastNameTxBx
+            // CEIsActiv
             // 
-            this.LastNameTxBx.Location = new System.Drawing.Point(150, 13);
-            this.LastNameTxBx.Margin = new System.Windows.Forms.Padding(4);
-            this.LastNameTxBx.Name = "LastNameTxBx";
-            this.LastNameTxBx.Size = new System.Drawing.Size(200, 22);
-            this.LastNameTxBx.TabIndex = 22;
+            this.CEIsActiv.Location = new System.Drawing.Point(134, 368);
+            this.CEIsActiv.Name = "CEIsActiv";
+            this.CEIsActiv.Properties.Caption = "Действующий сотрудник";
+            this.CEIsActiv.Size = new System.Drawing.Size(180, 20);
+            this.CEIsActiv.TabIndex = 18;
             // 
-            // IsActiveEmployeeChBx
+            // TEPosition
             // 
-            this.IsActiveEmployeeChBx.AutoSize = true;
-            this.IsActiveEmployeeChBx.Location = new System.Drawing.Point(156, 374);
-            this.IsActiveEmployeeChBx.Margin = new System.Windows.Forms.Padding(4);
-            this.IsActiveEmployeeChBx.Name = "IsActiveEmployeeChBx";
-            this.IsActiveEmployeeChBx.Size = new System.Drawing.Size(194, 21);
-            this.IsActiveEmployeeChBx.TabIndex = 36;
-            this.IsActiveEmployeeChBx.Text = "Действующий сотрудник";
-            this.IsActiveEmployeeChBx.UseVisualStyleBackColor = true;
+            this.TEPosition.Location = new System.Drawing.Point(152, 237);
+            this.TEPosition.Name = "TEPosition";
+            this.TEPosition.Size = new System.Drawing.Size(164, 22);
+            this.TEPosition.TabIndex = 19;
             // 
-            // CancelBtn
+            // CBEGender
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(188, 403);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(75, 23);
-            this.CancelBtn.TabIndex = 39;
-            this.CancelBtn.Text = "Отмена";
-            this.CancelBtn.UseVisualStyleBackColor = true;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.Location = new System.Drawing.Point(271, 403);
-            this.SaveBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(79, 23);
-            this.SaveBtn.TabIndex = 38;
-            this.SaveBtn.Text = "ОК";
-            this.SaveBtn.UseVisualStyleBackColor = true;
-            // 
-            // GenderCbCx
-            // 
-            this.GenderCbCx.FormattingEnabled = true;
-            this.GenderCbCx.Items.AddRange(new object[] {
+            this.CBEGender.Location = new System.Drawing.Point(152, 181);
+            this.CBEGender.Name = "CBEGender";
+            this.CBEGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CBEGender.Properties.Items.AddRange(new object[] {
             "Мужской",
             "Женский"});
-            this.GenderCbCx.Location = new System.Drawing.Point(150, 193);
-            this.GenderCbCx.Name = "GenderCbCx";
-            this.GenderCbCx.Size = new System.Drawing.Size(200, 24);
-            this.GenderCbCx.TabIndex = 30;
+            this.CBEGender.Size = new System.Drawing.Size(164, 22);
+            this.CBEGender.TabIndex = 20;
             // 
-            // EmployeeForm
+            // MEInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.MEInformation.Location = new System.Drawing.Point(152, 266);
+            this.MEInformation.Name = "MEInformation";
+            this.MEInformation.Size = new System.Drawing.Size(163, 96);
+            this.MEInformation.TabIndex = 22;
+            // 
+            // LUEDepartment
+            // 
+            this.LUEDepartment.Location = new System.Drawing.Point(152, 210);
+            this.LUEDepartment.Name = "LUEDepartment";
+            this.LUEDepartment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.LUEDepartment.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Подразделение"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.LUEDepartment.Size = new System.Drawing.Size(163, 22);
+            this.LUEDepartment.TabIndex = 23;
+            // 
+            // xfmEditEmployee
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 436);
-            this.Controls.Add(this.GenderCbCx);
-            this.Controls.Add(this.InformationTxBx);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.PositionTxBx);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.DepartmentCbBx);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.HireDateDtTP);
-            this.Controls.Add(this.TabNoTxBx);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.BirthDateDtTP);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.FirstNameTxBx);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.MiddleNameTxBx);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.LastNameTxBx);
-            this.Controls.Add(this.IsActiveEmployeeChBx);
-            this.Controls.Add(this.CancelBtn);
-            this.Controls.Add(this.SaveBtn);
-            this.Name = "EmployeeForm";
+            this.ClientSize = new System.Drawing.Size(326, 433);
+            this.Controls.Add(this.LUEDepartment);
+            this.Controls.Add(this.MEInformation);
+            this.Controls.Add(this.CBEGender);
+            this.Controls.Add(this.TEPosition);
+            this.Controls.Add(this.CEIsActiv);
+            this.Controls.Add(this.SBCancel);
+            this.Controls.Add(this.SBSave);
+            this.Controls.Add(this.TETabNumber);
+            this.Controls.Add(this.DEHireDate);
+            this.Controls.Add(this.DEBirthDay);
+            this.Controls.Add(this.TEMiddleName);
+            this.Controls.Add(this.TEFirstName);
+            this.Controls.Add(this.TELastName);
+            this.Controls.Add(this.labelControl10);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.labelControl8);
+            this.Controls.Add(this.labelControl7);
+            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.labelControl5);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.labelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "xfmEditEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудник";
-            this.Load += new System.EventHandler(this.EmployeeForm_Load);
+            this.Load += new System.EventHandler(this.FmEditEmployee_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.TELastName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEFirstName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEMiddleName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEBirthDay.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEBirthDay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEHireDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEHireDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TETabNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CEIsActiv.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TEPosition.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CBEGender.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MEInformation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LUEDepartment.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,28 +314,28 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox InformationTxBx;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox PositionTxBx;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox DepartmentCbBx;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker HireDateDtTP;
-        private System.Windows.Forms.TextBox TabNoTxBx;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker BirthDateDtTP;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox FirstNameTxBx;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox MiddleNameTxBx;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox LastNameTxBx;
-        private System.Windows.Forms.CheckBox IsActiveEmployeeChBx;
-        private System.Windows.Forms.Button CancelBtn;
-        private System.Windows.Forms.Button SaveBtn;
-        private System.Windows.Forms.ComboBox GenderCbCx;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.TextEdit TELastName;
+        private DevExpress.XtraEditors.TextEdit TEFirstName;
+        private DevExpress.XtraEditors.TextEdit TEMiddleName;
+        private DevExpress.XtraEditors.DateEdit DEBirthDay;
+        private DevExpress.XtraEditors.DateEdit DEHireDate;
+        private DevExpress.XtraEditors.TextEdit TETabNumber;
+        private DevExpress.XtraEditors.SimpleButton SBSave;
+        private DevExpress.XtraEditors.SimpleButton SBCancel;
+        private DevExpress.XtraEditors.CheckEdit CEIsActiv;
+        private DevExpress.XtraEditors.TextEdit TEPosition;
+        private DevExpress.XtraEditors.ComboBoxEdit CBEGender;
+        private DevExpress.XtraEditors.MemoEdit MEInformation;
+        private DevExpress.XtraEditors.LookUpEdit LUEDepartment;
     }
 }

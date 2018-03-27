@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HRDepartment.BL;
+
 
 namespace HRDepartment
 {
@@ -19,9 +19,8 @@ namespace HRDepartment
             Application.SetCompatibleTextRenderingDefault(false);
 
             fmMain form = new fmMain();
-            MessageService service = new MessageService();
 
-            MainPresenter presenter = new MainPresenter(form, service);
+            MainPresenter presenter = new MainPresenter(form);
 
             Application.Run(form);
         }

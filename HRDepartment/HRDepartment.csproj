@@ -57,17 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fmEditDepartment.cs">
+    <Compile Include="xfmEditDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmEditDepartment.Designer.cs">
-      <DependentUpon>fmEditDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fmEditEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fmEditEmployee.Designer.cs">
-      <DependentUpon>fmEditEmployee.cs</DependentUpon>
+    <Compile Include="xfmEditDepartment.Designer.cs">
+      <DependentUpon>xfmEditDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="fmMain.cs">
       <SubType>Form</SubType>
@@ -78,17 +72,14 @@
     <Compile Include="MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="xfmEditEmployee.cs">
+    <Compile Include="fmEditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="xfmEditEmployee.Designer.cs">
-      <DependentUpon>xfmEditEmployee.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="fmEditDepartment.resx">
-      <DependentUpon>fmEditDepartment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fmEditEmployee.resx">
+    <Compile Include="fmEditEmployee.Designer.cs">
       <DependentUpon>fmEditEmployee.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="xfmEditDepartment.resx">
+      <DependentUpon>xfmEditDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmMain.resx">
       <DependentUpon>fmMain.cs</DependentUpon>
@@ -103,8 +94,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="xfmEditEmployee.resx">
-      <DependentUpon>xfmEditEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="fmEditEmployee.resx">
+      <DependentUpon>fmEditEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,10 +114,6 @@
     <ProjectReference Include="..\DAL\HRDepartment.DAL.csproj">
       <Project>{5e971081-d444-4e85-80ac-058e4733951d}</Project>
       <Name>HRDepartment.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HRDepartment.BL\HRDepartment.BL.csproj">
-      <Project>{75540ed8-d300-4a90-bc07-65cf3e458d99}</Project>
-      <Name>HRDepartment.BL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

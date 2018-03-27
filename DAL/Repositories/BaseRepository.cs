@@ -60,9 +60,10 @@ namespace DAL.Repositories
             var tableName = type.Name;
 
             var sql = "Select * from " + tableName + " Where id = @id";
-            var propValues = _dataManager.SqlExecuter.Execute(sql, new object[] { "id", id },tableName);
+            var propValues = _dataManager.SqlExecuter.Execute(sql, new object[] { "id", id }, tableName);
 
             var item = new TEntity();
+
             foreach (DataRow row in propValues.Rows)
             {
                 item = (CreateItemFromRow<TEntity>(row));
@@ -94,11 +95,13 @@ namespace DAL.Repositories
                     id = (int)propValue;
                     continue;
                 }
+
                 propNames.Add(propName + " = @" + propName);
 
                 propValues.Add(propName);
                 propValues.Add(propValue);
             }
+
             propValues.Add("@id");
             propValues.Add(id);
             var fields = string.Join(", ", propNames);
@@ -166,13 +169,13 @@ namespace DAL.Repositories
         /// <summary>
         /// Создание строки данных (Объекта)
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TEntity"></typeparam>
         /// <param name="row"></param>
         /// <returns></returns>
-        public static T CreateItemFromRow<T>(DataRow row) where T : new()
+        public static TEntity CreateItemFromRow<TEntity>(DataRow row) where TEntity : new()
         {
             // Создаем объект
-            T item = new T();
+            TEntity item = new TEntity();
 
             // присваеваем данные из таблицы объекту
             SetItemFromRow(item, row);
@@ -184,10 +187,10 @@ namespace DAL.Repositories
         /// <summary>
         /// Заполнение данных строки
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TEntity"></typeparam>
         /// <param name="item"></param>
         /// <param name="row"></param>
-        public static void SetItemFromRow<T>(T item, DataRow row) where T : new()
+        public static void SetItemFromRow<TEntity>(TEntity item, DataRow row) where TEntity : new()
         {
             // Создаем колонки для таблицы
             foreach (DataColumn c in row.Table.Columns)

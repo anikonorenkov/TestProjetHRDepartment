@@ -1,30 +1,53 @@
-﻿using DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using DAL;
 
 namespace HRDepartment
 {
-    public partial class fmEditEmployee : Form
+    public partial class fmEditEmployee : XtraForm
     {
         public fmEditEmployee()
         {
             InitializeComponent();
         }
 
-        private void EmployeeForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Обработка диалогового значения формы
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
+        public static bool Execute(Employee employee)
+        {
+            using (var fm = new fmEditEmployee())
+            {
+
+                fm.Employee = employee;
+                var dr = fm.ShowDialog();
+
+                return dr == DialogResult.OK;
+            }
+        }
+
+        /// <summary>
+        /// Предварительная загрузка связанных компонентов формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FmEditEmployee_Load(object sender, EventArgs e)
         {
             try
             {
                 SetDepartmentCombobox();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -43,51 +66,52 @@ namespace HRDepartment
 
                 if (value != null)
                 {
-                    Text = "Редактировать сотрудника";
-                    SaveBtn.Click += UpdateType;
+                    this.Text = "Редактировать сотрудника";
+                    this.SBSave.Click += DoUpdate;
 
-                    LastNameTxBx.Text = value.LastName;
-                    FirstNameTxBx.Text = value.FirstName;
-                    MiddleNameTxBx.Text = value.MiddleName;
-                    BirthDateDtTP.Value = (DateTime)value.DtBirth;
-                    TabNoTxBx.Text = value.TabNumber;
-                    HireDateDtTP.Value = (DateTime)value.DtHire;
-                    GenderCbCx.Text = value.Gender;
-                    DepartmentCbBx.SelectedValue = value.DepartmentId;
-                    PositionTxBx.Text = value.Position;
-                    InformationTxBx.Text = value.Information;
+                    TELastName.Text = value.LastName;
+                    TEFirstName.Text = value.FirstName;
+                    TEMiddleName.Text = value.MiddleName;
+                    DEBirthDay.DateTime = (DateTime)value.DtBirth;
+                    TETabNumber.Text = value.TabNumber;
+                    DEHireDate.DateTime = (DateTime)value.DtHire;
+                    CBEGender.Text = value.Gender;
+                    LUEDepartment.ItemIndex = (int)value.DepartmentId;
+                    TEPosition.Text = value.Position;
+                    MEInformation.Text = value.Information;
 
-                    if (IsActiveEmployeeChBx.Checked)
-                        IsActiveEmployeeChBx.Checked = Convert.ToBoolean(value.IsActive);
+                    if (CEIsActiv.Checked)
+                        CEIsActiv.Checked = Convert.ToBoolean(value.IsActive);
 
+                   
                 }
 
                 else
                 {
                     Text = "Добавить сотрудника";
-                    SaveBtn.Click += InsertType;
+                    SBSave.Click += DoInsert;
                 }
 
                 _employee = value;
             }
         }
 
-        public int _DepartmentID;
+        private int _DepartmentId;
 
         /// <summary>
         /// Передаваепое подразделение
         /// </summary>
         public int ParentDepartment
         {
-            get { return _DepartmentID; }
+            get { return _DepartmentId; }
             set
             {
 
                 if (value != 0)
                 {
-                    DepartmentCbBx.SelectedValue = value;
+                    LUEDepartment.ItemIndex = value;
                 }
-                _DepartmentID = value;
+                _DepartmentId = value;
             }
         }
 
@@ -96,11 +120,11 @@ namespace HRDepartment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void UpdateType(object sender, EventArgs e)
+        private void DoUpdate(object sender, EventArgs e)
         {
             try
             {
-                UpdateType();
+                DoUpdate();
             }
             catch (Exception ex)
             {
@@ -113,11 +137,11 @@ namespace HRDepartment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void InsertType(object sender, EventArgs e)
+        private void DoInsert(object sender, EventArgs e)
         {
             try
             {
-                InsertType();
+                DoInsert();
             }
             catch (Exception ex)
             {
@@ -125,24 +149,26 @@ namespace HRDepartment
             }
         }
 
-        private void InsertType()
+        private void DoInsert()
         {
             try
             {
                 var employee = new Employee()
                 {
-                    LastName = LastNameTxBx.Text,
-                    FirstName = FirstNameTxBx.Text,
-                    MiddleName = MiddleNameTxBx.Text,
-                    DtBirth = BirthDateDtTP.Value,
-                    TabNumber = TabNoTxBx.Text,
-                    DtHire = HireDateDtTP.Value,
-                    Gender = GenderCbCx.Text,
-                    DepartmentId = (int)DepartmentCbBx.SelectedValue,
-                    Position = PositionTxBx.Text,
-                    Information = InformationTxBx.Text,
-                    IsActive = Convert.ToInt32(IsActiveEmployeeChBx.Checked)
+                    LastName = TELastName.Text,
+                    FirstName = TEFirstName.Text,
+                    MiddleName = TEMiddleName.Text,
+                    DtBirth = DEBirthDay.DateTime,
+                    TabNumber = TETabNumber.Text,
+                    DtHire = DEHireDate.DateTime,
+                    Gender = CBEGender.Text,
+                    DepartmentId = (int)LUEDepartment.EditValue,
+                    Position = TEPosition.Text,
+                    Information = MEInformation.Text,
+                    IsActive = Convert.ToInt32(CEIsActiv.Checked)
                 };
+
+              
 
                 DataManager.Instance.Employees.Add(employee);
                 this.Close();
@@ -151,25 +177,26 @@ namespace HRDepartment
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
-        private void UpdateType()
+        private void DoUpdate()
         {
             try
             {
-                Employee.LastName = LastNameTxBx.Text;
-                Employee.FirstName = FirstNameTxBx.Text;
-                Employee.MiddleName = MiddleNameTxBx.Text;
-                Employee.DtBirth = BirthDateDtTP.Value;
-                Employee.TabNumber = TabNoTxBx.Text;
-                Employee.DtHire = HireDateDtTP.Value;
-                Employee.Gender = GenderCbCx.Text;
-                Employee.DepartmentId = (int)DepartmentCbBx.SelectedValue;
-                Employee.Position = PositionTxBx.Text;
-                Employee.Information = InformationTxBx.Text;
+                Employee.LastName = TELastName.Text;
+                Employee.FirstName = TEFirstName.Text;
+                Employee.MiddleName = TEMiddleName.Text;
+                Employee.DtBirth = DEBirthDay.DateTime;
+                Employee.TabNumber = TETabNumber.Text;
+                Employee.DtHire = DEHireDate.DateTime;
+                Employee.Gender = CBEGender.Text;
+                Employee.DepartmentId = (int)LUEDepartment.EditValue;
+                Employee.Position = TEPosition.Text;
+                Employee.Information = MEInformation.Text;
 
-                Employee.IsActive = Convert.ToInt32(IsActiveEmployeeChBx.Checked);
+                Employee.IsActive = Convert.ToInt32(CEIsActiv.Checked);
+
+               
 
                 DataManager.Instance.Employees.Edit(Employee);
 
@@ -181,22 +208,18 @@ namespace HRDepartment
             }
         }
 
-        /// <summary>
-        /// Подгрузка справочника подразделений
-        /// </summary>
         private void SetDepartmentCombobox()
         {
             try
             {
-                DepartmentCbBx.DataSource = DataManager.Instance.Departments.GetAll();
-                DepartmentCbBx.DisplayMember = "Name";
-                DepartmentCbBx.ValueMember = "Id";
 
-                if (_employee.DepartmentId.HasValue)
+                LUEDepartment.Properties.DataSource = DataManager.Instance.Departments.GetAll();
+                LUEDepartment.Properties.DisplayMember = "Name";
+                LUEDepartment.Properties.ValueMember = "Id";
+
+                if (_employee.DepartmentId.HasValue && _employee.DepartmentId > 0)
                 {
-                    int? id = 0;
-                    id = _employee.DepartmentId;
-                    DepartmentCbBx.SelectedValue = id;
+                    LUEDepartment.EditValue = (int)_employee.DepartmentId;
                 }
             }
             catch (Exception ex)
@@ -205,24 +228,7 @@ namespace HRDepartment
             }
         }
 
-        public static bool Execute(Employee employee)
-        {
-            using (var fm = new fmEditEmployee())
-            {
- 
-                fm.Employee = employee;
-                var dr = fm.ShowDialog();
-
-                return dr == DialogResult.OK;
-            }
-        }
-
-        /// <summary>
-        /// Закрыть форму
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CancelBtn_Click(object sender, EventArgs e)
+        private void SBCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Entity
 {
-    public partial class Emploee
+    public  class Emploee
     {
         ///
 
