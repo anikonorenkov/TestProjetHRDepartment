@@ -108,7 +108,7 @@ namespace HRDepartment
             {
                 var department = DataManager.Instance.Departments.GetById(_view.DepartmentCurrentId);
 
-                if (xfmEditDepartment.Execute(department))
+                if (fmEditDepartment.Execute(department))
                 {
                     _view.TLLoadDepartment();
                 }
@@ -126,7 +126,7 @@ namespace HRDepartment
             {
                 DAL.Department department = null;
 
-                if (xfmEditDepartment.Execute(department))
+                if (fmEditDepartment.Execute(department))
                 {
                     _view.TLLoadDepartment();
                 }

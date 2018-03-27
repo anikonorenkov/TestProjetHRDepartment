@@ -57,11 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="xfmEditDepartment.cs">
+    <Compile Include="fmEditDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="xfmEditDepartment.Designer.cs">
-      <DependentUpon>xfmEditDepartment.cs</DependentUpon>
+    <Compile Include="fmEditDepartment.Designer.cs">
+      <DependentUpon>fmEditDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="fmMain.cs">
       <SubType>Form</SubType>
@@ -78,8 +78,8 @@
     <Compile Include="fmEditEmployee.Designer.cs">
       <DependentUpon>fmEditEmployee.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="xfmEditDepartment.resx">
-      <DependentUpon>xfmEditDepartment.cs</DependentUpon>
+    <EmbeddedResource Include="fmEditDepartment.resx">
+      <DependentUpon>fmEditDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmMain.resx">
       <DependentUpon>fmMain.cs</DependentUpon>

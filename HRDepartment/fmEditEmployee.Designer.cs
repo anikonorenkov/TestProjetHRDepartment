@@ -204,7 +204,7 @@
             this.SBSave.Name = "SBSave";
             this.SBSave.Size = new System.Drawing.Size(75, 23);
             this.SBSave.TabIndex = 16;
-            this.SBSave.Text = "Принять";
+            this.SBSave.Text = "ОК";
             // 
             // SBCancel
             // 
@@ -261,7 +261,7 @@
             this.LUEDepartment.Size = new System.Drawing.Size(163, 22);
             this.LUEDepartment.TabIndex = 23;
             // 
-            // xfmEditEmployee
+            // fmEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -290,7 +290,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "xfmEditEmployee";
+            this.Name = "fmEditEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудник";
             this.Load += new System.EventHandler(this.FmEditEmployee_Load);
