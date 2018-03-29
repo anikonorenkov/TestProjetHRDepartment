@@ -12,43 +12,21 @@ using DAL;
 
 namespace HRDepartment
 {
-    #region Описание интерфейса
 
-    public interface IXtraForm
+    public partial class fmMain : XtraForm
     {
-        int DepartmentCurrentId { get; }
-        int DepartmentCurrentParentId { get; }
-        bool IsExistsEmployee { get; }
-        int EmployeeCurrentDepartmentId { get; }
-        List<int?> DepartmentChieldId { get; }
-        int SelectedDGVRows { get; }
-        int EmployeeId { get; }
-        bool SelectedRowsCount { get; }
-        void TLLoadDepartment();
-        void GRLoadEmployee();
+        public fmMain()
+        {
+            InitializeComponent();
+            LoadData();
+        }
 
-        event EventHandler SBAddDepartmentClick;
-        event EventHandler SBEditDepartmentClick;
-        event EventHandler SBDeleteDepartmentClick;
-
-        event EventHandler SBAddEmployeeClick;
-        event EventHandler SBEditEmployeeClick;
-        event EventHandler SBDeleteEmployeeClick;
-
-        event EventHandler LoadDataDepartmentTreeView;
-        event EventHandler LoadDataEmployeeDataGridView;
-
-    }
-
-    #endregion
-
-    public partial class fmMain : XtraForm , IXtraForm
-    {
+        #region Переменные используемые в методах формы
 
         /// <summary>
         /// Идентификатор текущего подразделения в DepartmentTrL
         /// </summary>
-        public int DepartmentCurrentId
+        private int CurrentDepartmentId
         {
             get { return (int)TLDepartmentList.FocusedNode.GetValue("Id"); }
         }
@@ -56,123 +34,65 @@ namespace HRDepartment
         /// <summary>
         /// Родительское подразделение выбранного в DepartmentTrL подразделения 
         /// </summary>
-        public int DepartmentCurrentParentId
+        private int CurrentDepartmentParentId
         {
-            get { return DepartmentCurrentParentId; }
+            get { return CurrentDepartmentParentId; }
         }
 
         /// <summary>
         /// флаг наличия сотрудников в данном подразделении
         /// </summary>
-        public bool IsExistsEmployee
+        private bool IsExistsEmployee
         {
-            get { return DataManager.Instance.Employees.GetAll().Where(d => d.DepartmentId == DepartmentCurrentId).Any(); }
+            get { return DataManager.Instance.Employees.GetAll().Where(d => d.DepartmentId == CurrentDepartmentId).Any(); }
         }
 
         /// <summary>
-        /// Идентификатор департамента в котором числится сотрудник выбранный  в EmployeeDataGridView short{get}
+        /// Идентификатор департамента в котором числится сотрудник выбранный   
         /// </summary>
-        public int EmployeeCurrentDepartmentId
+        private int EmployeeCurrentDepartmentId
         {
             get { return (int)GVEmployee.GetRowCellValue(GVEmployee.FocusedRowHandle, "DepartmentId"); }
         }
 
         /// <summary>
-        /// Список идентификаторов подчиненных департаментов
+        /// Идентификатор сотрудника выбранной строки в GVEmployee 
         /// </summary>
-        public List<int?> DepartmentChieldId => throw new NotImplementedException();
-
-        /// <summary>
-        /// Выбранная строка в EmployeeDataGridView int{get}
-        /// </summary>
-        public int SelectedDGVRows
+        private int SelectedDGVRows
         {
             get { return (int)GVEmployee.GetRowCellValue(GVEmployee.FocusedRowHandle, "Id"); }
         }
 
         /// <summary>
-        /// Идентификатор выбранного сотрудника в EmployeeDataGridView int{get}
+        /// Идентификатор выбранного сотрудника в EmployeeDataGridView 
         /// </summary>
-        public int EmployeeId
+        private int EmployeeId
         {
             get { return (int)GVEmployee.GetRowCellValue(GVEmployee.FocusedRowHandle, "Id"); }
         }
 
         /// <summary>
-        /// флаг показывающий что строка в компоненте грид выбрана
+        /// флаг показывающий что строка в компоненте GVEmployee выбрана хотя бы одна строка
         /// </summary>
-        public bool SelectedRowsCount
+        private bool SelectedRowsGVEmployee
         {
             get { return GVEmployee.RowCount <= 0; }
         }
 
-
-        public fmMain()
-        {
-            InitializeComponent();
-            LoadData();
-            SBAddDepartnent.Click += SBAddDepartnent_Click;
-            SBEditDepartment.Click += SBEditDepartment_Click;
-            SBDeleteDepartment.Click += SBDeleteDepartment_Click;
-            SBAddEmployee.Click += SBAddEmployee_Click;
-            SBEditEmployee.Click += SBEditEmployee_Click;
-            SBDeleteEmployee.Click += BSDeleteEmployee_Click;
-        }
-
-        #region Реализация интерфейса IMainForm
-        private void BSDeleteEmployee_Click(object sender, EventArgs e)
-        {
-            SBDeleteEmployeeClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void SBEditEmployee_Click(object sender, EventArgs e)
-        {
-            SBEditEmployeeClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void SBAddEmployee_Click(object sender, EventArgs e)
-        {
-            SBAddEmployeeClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void SBDeleteDepartment_Click(object sender, EventArgs e)
-        {
-            SBDeleteDepartmentClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void SBEditDepartment_Click(object sender, EventArgs e)
-        {
-            SBEditDepartmentClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void SBAddDepartnent_Click(object sender, EventArgs e)
-        {
-            SBAddDepartmentClick?.Invoke(this, EventArgs.Empty);
-        }
-
-        public event EventHandler SBAddDepartmentClick;
-        public event EventHandler SBEditDepartmentClick;
-        public event EventHandler SBDeleteDepartmentClick;
-        public event EventHandler SBAddEmployeeClick;
-        public event EventHandler SBEditEmployeeClick;
-        public event EventHandler SBDeleteEmployeeClick;
-
-        public event EventHandler LoadDataDepartmentTreeView;
-        public event EventHandler LoadDataEmployeeDataGridView;
-
         #endregion
 
-        public void TLLoadDepartment()
+        /// <summary>
+        /// Загрузка данных в TLLoadDepartment
+        /// </summary>
+        private void TLLoadDepartmentsList()
         {
             TLDepartmentList.DataSource = DataManager.Instance.Departments.GetAll();
-            TLDepartmentList.ParentFieldName = "ParentId";
-            TLDepartmentList.KeyFieldName = "Id";
         }
 
         /// <summary>
         /// Загрузка данных в EmployeeGrCn
         /// </summary>
-        public void GRLoadEmployee()
+        private void GRLoadEmployeesList()
         {
             GCEmployeeList.DataSource = DataManager.Instance.Employees.GetAll();
         }
@@ -185,8 +105,8 @@ namespace HRDepartment
 
             try
             {
-                TLLoadDepartment();
-                GRLoadEmployee();
+                TLLoadDepartmentsList();
+                GRLoadEmployeesList();
             }
             catch (Exception ex)
             {
@@ -195,115 +115,7 @@ namespace HRDepartment
         }
 
         /// <summary>
-        /// обновление данных в EmployeeDataGridView в соответсвии с выбранным подразделением
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DepartmentTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-            try
-            {
-                var departmens = new List<int?>();
-
-                if (TLDepartmentList.FocusedNode != null)
-                    departmens.Add((int)TLDepartmentList.FocusedNode.GetValue("Id"));
-
-                departmens = GetDepartmentId(departmens);
-                GCEmployeeList.DataSource = GetFilterDepartmentIDEmployees(departmens);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Получение списка идентификаторов подразделений в которые входят в выбранное подразделение
-        /// </summary>
-        /// <param name="ParentDepartmentId"></param>
-        /// <returns></returns>
-        public static List<int?> GetDepartmentId(List<int?> parentDepartmentId)
-        {
-            var childrenDepartment = new List<int?>();
-
-            foreach (var item in parentDepartmentId)
-            {
-                childrenDepartment.Add(item);
-            }
-
-            while (DataManager.Instance.Departments.GetAll().Where(c => parentDepartmentId.Contains(c.Id)).Any())
-            {
-                var myDepartment = DataManager.Instance.Departments.GetAll()
-                    .Where(c => parentDepartmentId.Contains(c.ParentId))
-                    .Select(c => (int)c.Id).ToList();
-                parentDepartmentId.Clear();
-
-                foreach (var item in myDepartment)
-                {
-                    parentDepartmentId.Add(item);
-                    childrenDepartment.Add(item);
-                }
-            }
-
-            return childrenDepartment;
-        }
-
-        /// <summary>
-        /// Получение фильтрованного по депортаментам запроса
-        /// </summary>
-        /// <param name="departmentID"></param>
-        /// <returns></returns>
-        public static List<Employee> GetFilterDepartmentIDEmployees(List<int?> departmentsId)
-        {
-            var result = new List<Employee>();
-            var emp = DataManager.Instance.Employees.GetAll(). // Основоной набор данных 
-                Where(c => departmentsId.Contains((int)c.DepartmentId)).
-                Join(DataManager.Instance.Departments.GetAll(),    // Связываемый набор данных
-                e => e.DepartmentId,  // Свойство селектор из первого набора
-                d => d.Id,   // Свойство селектор из второго набора
-                (e, d) => new           // Создаем результат
-                {
-                    employeeId = e.Id,
-                    tabNom = e.TabNumber,
-                    firstName = e.FirstName,
-                    lastName = e.LastName,
-                    middleName = e.MiddleName,
-                    dtHire = e.DtHire,
-                    birthDate = e.DtBirth,
-                    gender = e.Gender,
-                    position = e.Position,
-                    information = e.Information,
-                    departmentId = e.DepartmentId
-
-                });
-
-            foreach (var item in emp)
-            {
-                Employee e = new Employee()
-                {
-                    Id = item.employeeId,
-                    FirstName = item.firstName,
-                    LastName = item.lastName,
-                    MiddleName = item.middleName,
-                    DtHire = item.dtHire,
-                    TabNumber = item.tabNom,
-                    DtBirth = item.birthDate,
-                    Gender = item.gender,
-                    Position = item.position,
-                    Information = item.information,
-                    DepartmentId = item.departmentId
-                };
-
-                result.Add(e);
-            }
-
-            return result;
-
-        }
-
-        /// <summary>
-        /// обновление данных в DepartmentTrL в соответсвии с выбранным подразделением
+        /// обновление данных в TLDepartmentList в соответсвии с выбранным подразделением
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -312,19 +124,184 @@ namespace HRDepartment
 
             try
             {
-                var listId = new List<int?>();
 
-                if (TLDepartmentList.FocusedNode.GetValue("Id") != null)
-                    listId.Add((int)TLDepartmentList.FocusedNode.GetValue("Id"));
+                if (TLDepartmentList.FocusedNode.GetValue("Id") == null)
+                    return;
 
-                listId = GetDepartmentId(listId);
-
-                GCEmployeeList.DataSource = GetFilterDepartmentIDEmployees(listId);
+                var listId = DAL.Repositories.ViewModel.GetDepartmentsIdList(((int)TLDepartmentList.FocusedNode.GetValue("Id")));
+                GCEmployeeList.DataSource = DAL.Repositories.ViewModel.GetFilterDepartmentIDEmployees(listId);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        #region Работа с кнопками вызова форм и удаления
+
+        /// <summary>
+        /// Удаление выбранного сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SBDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Удалить сотрудника?", "Предупреждение.", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    var employee = DataManager.Instance.Employees.GetById(EmployeeId);
+                    DataManager.Instance.Employees.Delete(employee.Id);
+                    GRLoadEmployeesList();
+                }
+                else
+                    return;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Редактирование данных о сотруднике
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SBEditEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (SelectedRowsGVEmployee)
+                {
+                    MessageBox.Show("Выберите сотрудника для редактирования.", "Информационное сообщение.", MessageBoxButtons.OK);
+
+                    return;
+
+                }
+
+                var employee = DataManager.Instance.Employees.GetById(EmployeeId);
+
+                if (fmEditEmployee.Execute(employee))
+                {
+                    GRLoadEmployeesList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Добавление нового сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SBAddEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var employee = new Employee
+                {
+                    Id = 0,
+                    FirstName = "",
+                    LastName = "",
+                    TabNumber = "",
+                    DtHire = System.DateTime.Now
+                };
+
+                if (fmEditEmployee.Execute(employee))
+                {
+                    GRLoadEmployeesList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Удаление выбранного подразделения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SBDeleteDepartment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (MessageBox.Show("Удалить подразделение?", "Предупреждение.", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    var department = DataManager.Instance.Departments.GetById(CurrentDepartmentId);
+                    DataManager.Instance.Departments.Delete(department.Id);
+                    TLLoadDepartmentsList();
+                }
+
+                else
+                    return;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Редактирование выбранного подразделения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SBEditDepartment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var department = DataManager.Instance.Departments.GetById(CurrentDepartmentId);
+
+                if (fmEditDepartment.Execute(department))
+                {
+                    TLLoadDepartmentsList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Добавление нового департамента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SBAddDepartnent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DAL.Department department = new DAL.Department
+                {
+                    Id = 0,
+                    Name = "",
+                    Code = ""
+                };
+
+                if (fmEditDepartment.Execute(department))
+                {
+                    TLLoadDepartmentsList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
     }
 }

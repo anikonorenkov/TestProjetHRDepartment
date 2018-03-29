@@ -45,19 +45,21 @@
             // 
             // SBSave
             // 
-            this.SBSave.Location = new System.Drawing.Point(250, 132);
+            this.SBSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.SBSave.Location = new System.Drawing.Point(169, 132);
             this.SBSave.Name = "SBSave";
             this.SBSave.Size = new System.Drawing.Size(75, 23);
             this.SBSave.TabIndex = 0;
-            this.SBSave.Text = "ОК";
+            this.SBSave.Text = "Сохранить";
             // 
             // SBCancel
             // 
-            this.SBCancel.Location = new System.Drawing.Point(169, 132);
+            this.SBCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.SBCancel.Location = new System.Drawing.Point(250, 132);
             this.SBCancel.Name = "SBCancel";
             this.SBCancel.Size = new System.Drawing.Size(75, 23);
             this.SBCancel.TabIndex = 1;
-            this.SBCancel.Text = "Отмена";
+            this.SBCancel.Text = "Отменить";
             this.SBCancel.Click += new System.EventHandler(this.SBCancel_Click);
             // 
             // TEName
@@ -115,6 +117,8 @@
             this.LUEDepartment.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Подразделение"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.LUEDepartment.Properties.DisplayMember = "Name";
+            this.LUEDepartment.Properties.ValueMember = "Id";
             this.LUEDepartment.Size = new System.Drawing.Size(202, 22);
             this.LUEDepartment.TabIndex = 4;
             // 

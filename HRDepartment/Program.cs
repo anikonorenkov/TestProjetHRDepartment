@@ -20,8 +20,6 @@ namespace HRDepartment
 
             fmMain form = new fmMain();
 
-            MainPresenter presenter = new MainPresenter(form);
-
             Application.Run(form);
         }
     }

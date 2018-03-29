@@ -21,52 +21,34 @@ namespace DAL.Repositories
 
         }
 
-        ///// <summary>
-        ///// Возвращает список подразделений
-        ///// </summary>
-        ///// <returns></returns>
-        //public override List<Department> GetAll()
-        //{
-        //    var result = base.GetAll();
-        //    return result;
-        //}
-
-        ///// <summary>
-        ///// Возвращает список из одного подразделения id которого передается в качестве входящего параметра
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public override Department GetById(int id)
-        //{
-        //    var result = base.GetById(id);
-        //    return result;
-        //}
-
-        ///// <summary>
-        ///// Добавляет новое подразделение
-        ///// </summary>
-        ///// <param name="department"></param>
-        //public override void Add(Department department)
-        //{
-        //    base.Add(department);
-        //}
-
-        ///// <summary>
-        ///// Редактирование выбранного подразделения
-        ///// </summary>
-        ///// <param name="department"></param>
-        //public override void Edit(Department department)
-        //{
-        //    base.Edit(department);
-        //}
-
         /// <summary>
-        /// Удаление выбранного подразделения
+        /// Удаление выбранного подразделения вместе со вложенными поддразделениями и входящими в них сотрудниками
         /// </summary>
         /// <param name="id"></param>
         public override void Delete(int id)
         {
+
+            var deptIdList = ViewModel.GetDepartmentsIdList(id);
+
+            foreach (var deptId in deptIdList)
+            {
+                var listEmployeeId = DataManager.Instance.Employees.GetAll().Where(d => d.DepartmentId == deptId).Select(c => c.Id).ToList();
+
+                foreach (var itemIdDelete in listEmployeeId)
+                {
+                    DataManager.Instance.Employees.Delete(itemIdDelete);
+                }
+            }
+
+            foreach (var deptId in deptIdList)
+            {
+                base.Delete((int)deptId);
+            }
+
             base.Delete(id);
+
         }
+
+
     }
 }

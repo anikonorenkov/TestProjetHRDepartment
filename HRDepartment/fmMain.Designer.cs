@@ -75,10 +75,12 @@
             this.treeListColumn1});
             this.TLDepartmentList.DataSource = null;
             this.TLDepartmentList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLDepartmentList.KeyFieldName = "Id";
             this.TLDepartmentList.Location = new System.Drawing.Point(2, 2);
             this.TLDepartmentList.Name = "TLDepartmentList";
             this.TLDepartmentList.OptionsBehavior.Editable = false;
             this.TLDepartmentList.OptionsBehavior.ReadOnly = true;
+            this.TLDepartmentList.ParentFieldName = "ParentId";
             this.TLDepartmentList.Size = new System.Drawing.Size(342, 632);
             this.TLDepartmentList.TabIndex = 0;
             this.TLDepartmentList.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.DepartmentTrL_FocusedNodeChanged);
@@ -99,6 +101,7 @@
             this.SBAddDepartnent.Size = new System.Drawing.Size(84, 23);
             this.SBAddDepartnent.TabIndex = 14;
             this.SBAddDepartnent.Text = "Добавить...";
+            this.SBAddDepartnent.Click += new System.EventHandler(this.SBAddDepartnent_Click);
             // 
             // SBEditDepartment
             // 
@@ -108,6 +111,7 @@
             this.SBEditDepartment.Size = new System.Drawing.Size(80, 23);
             this.SBEditDepartment.TabIndex = 15;
             this.SBEditDepartment.Text = "Изменить...";
+            this.SBEditDepartment.Click += new System.EventHandler(this.SBEditDepartment_Click);
             // 
             // SBDeleteDepartment
             // 
@@ -117,6 +121,7 @@
             this.SBDeleteDepartment.Size = new System.Drawing.Size(75, 23);
             this.SBDeleteDepartment.TabIndex = 16;
             this.SBDeleteDepartment.Text = "Удалить";
+            this.SBDeleteDepartment.Click += new System.EventHandler(this.SBDeleteDepartment_Click);
             // 
             // panelControl2
             // 
@@ -251,6 +256,7 @@
             this.SBAddEmployee.Size = new System.Drawing.Size(83, 23);
             this.SBAddEmployee.TabIndex = 18;
             this.SBAddEmployee.Text = "Добавить...";
+            this.SBAddEmployee.Click += new System.EventHandler(this.SBAddEmployee_Click);
             // 
             // SBEditEmployee
             // 
@@ -260,6 +266,7 @@
             this.SBEditEmployee.Size = new System.Drawing.Size(83, 23);
             this.SBEditEmployee.TabIndex = 19;
             this.SBEditEmployee.Text = "Изменить...";
+            this.SBEditEmployee.Click += new System.EventHandler(this.SBEditEmployee_Click);
             // 
             // SBDeleteEmployee
             // 
@@ -269,6 +276,7 @@
             this.SBDeleteEmployee.Size = new System.Drawing.Size(75, 23);
             this.SBDeleteEmployee.TabIndex = 20;
             this.SBDeleteEmployee.Text = "Удалить";
+            this.SBDeleteEmployee.Click += new System.EventHandler(this.SBDeleteEmployee_Click);
             // 
             // fmMain
             // 

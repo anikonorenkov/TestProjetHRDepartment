@@ -61,14 +61,14 @@ namespace HRDepartment
             set
             {
 
-                if (value != null)
+                if (value.Id != 0)
                 {
                     this.Text = "Редактировать подразделение";
                     this.SBSave.Click += DoUpdate; ;
                     TEName.Text = value.Name;
                     TECode.Text = value.Code;
 
-                    if (CEIsActiv.Checked)
+                    //if (CEIsActiv.Checked)
                         CEIsActiv.Checked = (bool)value.IsActive;
 
                 }
@@ -111,8 +111,7 @@ namespace HRDepartment
         private void DoInsert()
         {
 
-            try
-            {
+        
                 var department = new DAL.Department()
                 {
                     Name = TEName.Text,
@@ -124,11 +123,7 @@ namespace HRDepartment
 
                 DataManager.Instance.Departments.Add(department);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+       
         }
 
         /// <summary>
@@ -136,21 +131,15 @@ namespace HRDepartment
         /// </summary>
         private void DoUpdate()
         {
-            try
-            {
+
                 Department.Name = TEName.Text;
                 Department.Code = TECode.Text;
                 Department.ParentId = (int)LUEDepartment.EditValue;
                 Department.IsActive = CEIsActiv.Checked;
 
                 DataManager.Instance.Departments.Edit(Department);
-
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         /// <summary>
@@ -160,7 +149,14 @@ namespace HRDepartment
         /// <param name="e"></param>
         private void SBCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -170,7 +166,15 @@ namespace HRDepartment
         /// <param name="e"></param>
         private void FmEditDepartment_Load(object sender, EventArgs e)
         {
-            SetDepartmentCombobox();
+            try
+            {
+                SetDepartmentCombobox();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -184,7 +188,7 @@ namespace HRDepartment
                 LUEDepartment.Properties.DisplayMember = "Name";
                 LUEDepartment.Properties.ValueMember = "Id";
 
-                if (_department.ParentId.HasValue)
+                //if (_department.ParentId.HasValue)
                     LUEDepartment.EditValue = _department.ParentId;
 
             }

@@ -85,8 +85,11 @@ namespace DAL.Repositories
             var propNames = new List<string>();
             var propValues = new List<object>();
 
-            foreach (var prop in type.GetProperties().Where(c => !c.GetMethod.IsVirtual))
+            foreach (var prop in type.GetProperties())
             {
+                if (prop.GetCustomAttributes(true).Count(a => a is DbPropAttribute) == 0)
+                    continue;
+
                 var propName = prop.Name;
                 var propValue = prop.GetValue(editItem);
 
@@ -124,14 +127,10 @@ namespace DAL.Repositories
             var propNames = new List<string>();  // Объявляем список Названий внутри сущности (Полей)  (Строка)
             var propValues = new List<object>();  // Объявляем список Значений полей внутри сущности   (Объект)
 
-            foreach (var prop in type.GetProperties().Where(c => !c.GetMethod.IsVirtual))   // возврящаем все поля ключ значение из записи путем перебора
+            foreach (var prop in type.GetProperties())   // возврящаем все поля ключ значение из записи путем перебора
             {
-                //if (prop.GetCustomAttributes(true).Count(a => a is DbPropAttribute) == 0)
-                //    continue;
-                // Добавить Аттрибуты и фильтровать по ним
-
-
-
+                if (prop.GetCustomAttributes(true).Count(a => a is DbPropAttribute) == 0)
+                    continue;
 
                 var propName = prop.Name;                   // присваиваем переменной название поля
                 var propValue = prop.GetValue(editItem);  // получаем значение нужного поля

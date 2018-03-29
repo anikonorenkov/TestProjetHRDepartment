@@ -64,7 +64,7 @@ namespace HRDepartment
             set
             {
 
-                if (value != null)
+                if (value.Id != 0)
                 {
                     this.Text = "Редактировать сотрудника";
                     this.SBSave.Click += DoUpdate;
@@ -85,7 +85,6 @@ namespace HRDepartment
 
                    
                 }
-
                 else
                 {
                     Text = "Добавить сотрудника";

@@ -20,44 +20,6 @@ namespace DAL.Repositories
 
         }
 
-        ///// <summary>
-        ///// Получение списка сотрудников
-        ///// </summary>
-        ///// <returns></returns>
-        //public override List<Employee> GetAll()
-        //{
-        //    return base.GetAll();
-        //}
-
-        ///// <summary>
-        ///// Получение списка из одного сотрудника выбранного по идентификатору входящего параметра
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public override Employee GetById(int id)
-        //{
-        //    var result = base.GetById(id);
-        //    return result;
-        //}
-
-        ///// <summary>
-        ///// Добавление нового сотрудника
-        ///// </summary>
-        ///// <param name="employee"></param>
-        //public override void Add(Employee employee)
-        //{
-        //    base.Add(employee);
-        //}
-
-        ///// <summary>
-        ///// Редактирование данных о сотруднике
-        ///// </summary>
-        ///// <param name="employee"></param>
-        //public override void Edit(Employee employee)
-        //{
-        //    base.Edit(employee);
-        //}
-
         /// <summary>
         /// Удаление выбранного сотрудника
         /// </summary>

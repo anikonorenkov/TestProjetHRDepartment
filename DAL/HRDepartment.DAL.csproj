@@ -59,6 +59,7 @@
     <Compile Include="Repositories\DepartmentRepository.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\SqlExecuter.cs" />
+    <Compile Include="Repositories\ViewModelcs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
